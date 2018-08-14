@@ -22,6 +22,7 @@ public class CountryPickerDialog extends DialogFragment implements OnItemClickLi
   // region Variables
   private CountryPickerDialogInteractionListener dialogInteractionListener;
   private EditText searchEditText;
+  private TextView tvNoCountry;
   private RecyclerView countriesRecyclerView;
   private CountriesAdapter adapter;
   private List<Country> searchResults;
@@ -42,6 +43,7 @@ public class CountryPickerDialog extends DialogFragment implements OnItemClickLi
     getDialog().setTitle(R.string.country_picker_header);
     searchEditText = view.findViewById(R.id.country_code_picker_search);
     countriesRecyclerView = view.findViewById(R.id.countries_recycler_view);
+    tvNoCountry = view.findViewById(R.id.tv_no_country_found);
     setupRecyclerView();
     if (!dialogInteractionListener.canSearch()) {
       searchEditText.setVisibility(View.GONE);
@@ -98,7 +100,12 @@ public class CountryPickerDialog extends DialogFragment implements OnItemClickLi
         searchResults.add(country);
       }
     }
-    dialogInteractionListener.sortCountries(searchResults);
+    if (searchResults.size() > 0) {
+            tvNoCountry.setVisibility(View.GONE);
+            dialogInteractionListener.sortCountries(searchResults);
+        } else {
+            tvNoCountry.setVisibility(View.VISIBLE);
+        }
     adapter.notifyDataSetChanged();
   }
 
