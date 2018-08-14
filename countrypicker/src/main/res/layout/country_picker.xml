@@ -1,27 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    >
+    android:orientation="vertical">
 
-  <EditText
-      android:id="@+id/country_code_picker_search"
-      android:layout_width="match_parent"
-      android:layout_height="wrap_content"
-      android:background="@android:color/transparent"
-      android:drawableLeft="@drawable/ic_search"
-      android:drawableStart="@drawable/ic_search"
-      android:hint="@string/search"
-      android:imeOptions="actionSearch"
-      android:maxLines="1"
-      android:padding="16dp"
-      />
+    <EditText
+        android:id="@+id/country_code_picker_search"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/transparent"
+        android:drawableLeft="@drawable/ic_search"
+        android:drawableStart="@drawable/ic_search"
+        android:hint="@string/search"
+        android:imeOptions="actionSearch"
+        android:inputType="text"
+        android:maxLines="1"
+        android:padding="16dp" />
 
-  <android.support.v7.widget.RecyclerView
-      android:id="@+id/countries_recycler_view"
-      android:layout_width="match_parent"
-      android:layout_height="match_parent"
-      />
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/countries_recycler_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/country_code_picker_search" />
 
-</LinearLayout>
+    <TextView
+        android:id="@+id/tv_no_country_found"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:text="@string/no_country_found"
+        android:textSize="16sp"
+        android:visibility="gone" />
+
+</RelativeLayout>
