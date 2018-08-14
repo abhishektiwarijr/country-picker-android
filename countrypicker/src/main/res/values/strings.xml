@@ -5,4 +5,5 @@
   <string name="error_listener_not_set">Listener is not set you will not receive any callback for country picked!</string>
   <string name="error_no_countries_found">No Countries Found! Did you call build()</string>
   <string name="country_picker_header">Select country</string>
+  <string name="no_country_found">No country found.</string>
 </resources>
